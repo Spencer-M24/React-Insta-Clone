@@ -1,0 +1,24 @@
+.SearchBar {
+    /* display: grid; */
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Arial'
+}
+
+.SearchBar .search-bar-left {
+    margin: 20px;
+    font-size: 3rem;
+}
+
+.SearchBar .search-bar-input {
+    margin: 10px;
+    font-size: 2rem;
+}
+
+.SearchBar .icons {
+    margin: 13px;
+}
+
+.SearchBar .icons i{
+    margin: 13px;
+} 
