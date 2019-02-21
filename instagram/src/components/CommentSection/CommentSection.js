@@ -1,4 +1,5 @@
 import React from 'react';
+import PropType from 'prop-types';
 
 const CommentSection = (props) => {
     return (
@@ -13,4 +14,19 @@ const CommentSection = (props) => {
 
     );
 }
+
+CommentSection.propTypes = {
+    comment: PropType.shape({
+        username: PropType.string.isRequired,
+        text: PropType.string.isRequired
+    })
+
+}
+
+
+
+
+
+
+
 export default CommentSection; 

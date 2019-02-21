@@ -1,33 +1,23 @@
 import React from 'react';
-import CommentSection from '../CommentSection/CommentSection';
+import PropType from 'prop-types';
+import Post from './Post';
 
 const PostContainer = (props) => {
     return (
-        <div className="PostContainer">
-            <p className="user"><img src={props.postData.thumbnailUrl} alt="User" /><span className="username">{props.postData.username}</span><span className="timestamp"> {props.postData.timestamp}</span> </p>
-            <div className="postImage"><img src={props.postData.imageUrl} alt="Post" /></div>
-            <div className="CommentSection">
-                <div className="likes">
-                    <div className="icons">
-                        <i className="far fa-2x fa-heart"></i>
-                        <i className="far  fa-2x fa-comment"></i>
-                    </div>
-                    <p>{props.postData.likes} Likes</p>
-                </div>
-                {props.postData.comments.map((x, i)=> <CommentSection comment={x} key={i} />)}
-                <form onSubmit={(e) => props.addComment(e, props.postData)} >
-                    <input 
-                        type="text" 
-                        placeholder="Add a comment..." 
-                        name="inputText" 
-                        value={props.inputText}
-                        onChange={props.handleChange} 
-                        
-                    />
-                </form>
-            </div>
+        <div>
+            {props.infodata.map(p => 
+            <Post username={props.username} 
+            postData={p}
+          key={`${p.username}${p.timestamp}` }
+        />)}
         </div>
     );
 }
 
+PostContainer.propTypes = {
+    infodata: PropType.array.isRequired
+}
+
 export default PostContainer;
+
+
